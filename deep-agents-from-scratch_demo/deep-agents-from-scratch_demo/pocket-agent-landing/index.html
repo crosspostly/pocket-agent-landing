@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="ru" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Бесплатный мастеркласс: ИИ-Агент в кармане</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <style>
+            body {
+                font-family: "Inter", sans-serif;
+            }
+            h1,
+            h2,
+            h3,
+            .font-heading {
+                font-family: "Plus Jakarta Sans", sans-serif;
+            }
+            .gradient-text {
+                background: linear-gradient(135deg, #f97316 0%, #facc15 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .gradient-bg {
+                background: linear-gradient(135deg, #f97316, #facc15);
+            }
+            .gradient-border {
+                border-image: linear-gradient(135deg, #f97316, #facc15) 1;
+            }
+            .card-surprise:hover .card-icon {
+                transform: scale(1.15) rotate(-5deg);
+            }
+            .card-surprise:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 20px 60px rgba(249, 115, 22, 0.15);
+            }
+            .float-anim {
+                animation: float 4s ease-in-out infinite;
+            }
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-12px);
+                }
+            }
+            .pulse-glow {
+                animation: pulse-glow 2.5s ease-in-out infinite;
+            }
+            @keyframes pulse-glow {
+                0%,
+                100% {
+                    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+                }
+                50% {
+                    box-shadow: 0 0 50px rgba(249, 115, 22, 0.6);
+                }
+            }
+        </style>
+    </head>
+    <body class="bg-slate-950 text-slate-100 antialiased overflow-x-hidden">
+        <!-- HEADER -->
+        <header
+            class="border-b border-slate-900 backdrop-blur-md sticky top-0 z-50 bg-slate-950/80"
+        >
+            <div
+                class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"
+            >
+                <div
+                    class="flex items-center gap-2 font-bold text-xl tracking-tight"
+                >
+                    <div
+                        class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center"
+                    >
+                        <i data-lucide="zap" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <span
+                        >Pocket<span class="text-amber-400 font-light"
+                            >Agent</span
+                        ></span
+                    >
+                </div>
+                <a
+                    href="#register"
+                    class="gradient-bg hover:opacity-90 text-white text-xs font-bold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-orange-500/25"
+                >
+                    Бесплатная регистрация
+                </a>
+            </div>
+        </header>
+
+        <!-- HERO -->
+        <section
+            class="relative pt-20 pb-16 md:pt-32 md:pb-24 max-w-6xl mx-auto px-4 text-center"
+        >
+            <div
+                class="absolute inset-0 -z-10 flex items-center justify-center opacity-20 pointer-events-none"
+            >
+                <div
+                    class="w-[600px] h-[600px] bg-orange-600 rounded-full blur-[160px] animate-pulse"
+                ></div>
+                <div
+                    class="w-[350px] h-[350px] bg-amber-500 rounded-full blur-[140px] -ml-32"
+                ></div>
+            </div>
+
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-orange-500/10 text-orange-400 border border-orange-500/20 mb-8"
+            >
+                <i data-lucide="mic" class="w-4 h-4"></i> Живой мастеркласс •
+                1,5 часа • Бесплатно
+            </div>
+
+            <h1
+                class="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight max-w-5xl mx-auto leading-[1.1] mb-6"
+            >
+                Ты даже не подозревал, что это<br />
+                <span class="gradient-text"> можно доверить ИИ</span>
+            </h1>
+
+            <p
+                class="text-base sm:text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed"
+            >
+                9+ неочевидных сценариев из реальной жизни, где умный агент<br
+                    class="hidden md:block"
+                />
+                делает за тебя то, о чём ты даже не задумывался.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <a
+                    href="#register"
+                    class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-slate-900 gradient-bg hover:opacity-95 transition-all text-lg shadow-xl shadow-orange-500/25 flex items-center justify-center gap-2 pulse-glow"
+                >
+                    Забронировать место бесплатно
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a
+                    href="#surprises"
+                    class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-slate-300 bg-slate-900 border border-slate-800 hover:bg-slate-800 transition-all text-lg"
+                >
+                    Что будем разбирать
+                </a>
+            </div>
+
+            <div
+                class="grid grid-cols-2 md:grid-cols-3 gap-4 p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl backdrop-blur-md max-w-3xl mx-auto"
+            >
+                <div class="text-center p-2">
+                    <div
+                        class="text-2xl md:text-3xl font-bold text-amber-400 mb-0.5"
+                    >
+                        9 сценариев
+                    </div>
+                    <div
+                        class="text-[11px] text-slate-500 uppercase tracking-wider font-semibold"
+                    >
+                        о которых не думал
+                    </div>
+                </div>
+                <div class="text-center border-l border-slate-900 p-2">
+                    <div
+                        class="text-2xl md:text-3xl font-bold text-orange-400 mb-0.5"
+                    >
+                        Живой
+                    </div>
+                    <div
+                        class="text-[11px] text-slate-500 uppercase tracking-wider font-semibold"
+                    >
+                        формат + запись
+                    </div>
+                </div>
+                <div
+                    class="text-center border-l border-slate-900 p-2 col-span-2 md:col-span-1"
+                >
+                    <div
+                        class="text-2xl md:text-3xl font-bold text-white mb-0.5"
+                    >
+                        Полностью
+                    </div>
+                    <div
+                        class="text-[11px] text-slate-500 uppercase tracking-wider font-semibold"
+                    >
+                        бесплатно
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRO HOOK -->
+        <section class="py-16 max-w-4xl mx-auto px-4">
+            <div
+                class="bg-slate-900/50 border border-slate-800/60 rounded-3xl p-8 md:p-12 text-center"
+            >
+                <p
+                    class="text-lg md:text-2xl text-slate-300 leading-relaxed mb-6"
+                >
+                    «Ну ChatGPT я уже пробовал, болтает — и что?»
+                </p>
+                <p class="text-base md:text-lg text-slate-400 leading-relaxed">
+                    Это не чат-бот. Это
+                    <b class="text-amber-400">автономный агент</b>, который
+                    <b class="text-white">действует</b> вместо тебя: прочитал
+                    документ, нашёл связь, написал текст, отправил ответ, создал
+                    заметку. Без твоего участия.
+                </p>
+            </div>
+        </section>
+
+        <!-- SURPRISES GRID -->
+        <section id="surprises" class="py-20 max-w-6xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+                    Что ты точно не знал,<br />что можно отдать ИИ
+                </h2>
+                <p class="text-slate-400 max-w-xl mx-auto">
+                    Каждая карточка — реальный сценарий. Без кода. Без подписок.
+                    Без программирования.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Card 1 -->
+                <div
+                    class="card-surprise bg-slate-900/50 border border-slate-800/60 rounded-2xl p-6 transition-all duration-300 cursor-default"
+                >
+                    <div
+                        class="card-icon w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-2xl mb-4 transition-all duration-300"
+                    >
+                        🤝
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">
+                        Помощь другу с трудным ответом
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Скинул тебе простыню текста и спрашивает совета? ИИ
+                        проанализирует контекст и предложит 3 варианта ответа —
+                        выбирай и отправляй.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="card-surprise bg-slate-900/50 border border-slate-800/60 rounded-2xl p-6 transition-all duration-300 cursor-default"
+                >
+                    <div
+                        class="card-icon w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-2xl mb-4 transition-all duration-300"
+                    >
+                        📅
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">
+                        Планирование отпуска за тебя
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Скинул ИИ ссылки на статьи и заметки о месте — он сам
+                        составляет маршрут, подбирает отели и выдаёт готовый
+                        план на день.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="card-surprise bg-slate-900/50 border border-slate-800/60 rounded-2xl p-6 transition-all duration-300 cursor-default"
+                >
+                    <div
+                        class="card-icon w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center text-2xl mb-4 transition-all duration-300"
+                    >
+                        💬
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">
+                        Длинное голосовое — в структуру
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Надиктовал 5 минут мыслей на ходу. ИИ очищает от
+                        «э-э-э», выделяет главное и раскладывает по полочкам:
+                        задачи, идеи, дедлайны.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="card-surprise bg-slate-900/50 border border-slate-800/60 rounded-2xl p-6 transition-all duration-300 cursor-default"
+                >
+                    <div
+                        class="card-icon w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-2xl mb-4 transition-all duration-300"
+                    >
+                        📧
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">
+                        Сложное письмо — за 30 секунд
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Нужно написать официальный ответ, а не знаешь как? ИИ
+                        берёт твои предыдущие письма и пишет точно в твоём
+                        стиле.
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div
+                    class="card-surprise bg-slate-900/50 border border-slate-800/60 rounded-2xl p-6 transition-all duration-300 cursor-default"
+                >
+                    <div
+                        class="card-icon w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center text-2xl mb-4 transition-all duration-300"
+                    >
+                        🧠
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">
+                        Второе мнение по любому вопросу
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Загрузил документ, контракт или статью — ИИ нашёл слабые
+                        места, риски и подводные камни. Бесплатный юрист и
+                        аналитик в одном.
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div
+                    class="card-surprise bg-slate-900/50 border border-slate-800/60 rounded-2xl p-6 transition-all duration-300 cursor-default"
+                >
+                    <div
+                        class="card-icon w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-2xl mb-4 transition-all duration-300"
+                    >
+                        📱
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">
+                        Разбор любого видео или подкаста
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Скинул ссылку — ИИ посмотрел и прислал транскрипт,
+                        ключевые тезисы и что из этого применимо лично для тебя.
+                    </p>
+                </div>
+
+                <!-- Card 7 -->
+                <div
+                    class="card-surprise bg-slate-900/50 border border-slate-800/60 rounded-2xl p-6 transition-all duration-300 cursor-default"
+                >
+                    <div
+                        class="card-icon w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-2xl mb-4 transition-all duration-300"
+                    >
+                        🗂️
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">
+                        Сортировка хаоса в голове
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Выгрузил все мысли за неделю — ИИ нашёл повторяющиеся
+                        темы, приоритеты и даже предложил с чего начать.
+                    </p>
+                </div>
+
+                <!-- Card 8 -->
+                <div
+                    class="card-surprise bg-slate-900/50 border border-slate-800/60 rounded-2xl p-6 transition-all duration-300 cursor-default"
+                >
+                    <div
+                        class="card-icon w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-2xl mb-4 transition-all duration-300"
+                    >
+                        ✍️
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">
+                        Контент-план на месяц за минуту
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Скинул тему и свою аудиторию — ИИ генерирует 30 идей
+                        постов, адаптирует под каждую соцсеть и даже пишет
+                        черновики.
+                    </p>
+                </div>
+
+                <!-- Card 9 -->
+                <div
+                    class="card-surprise bg-slate-900/50 border border-slate-800/60 rounded-2xl p-6 transition-all duration-300 cursor-default"
+                >
+                    <div
+                        class="card-icon w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-2xl mb-4 transition-all duration-300"
+                    >
+                        🔍
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">
+                        Мониторинг конкурентов
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        ИИ каждый день проверяет сайты, соцсети и цены
+                        конкурентов и присылает тебе дайджест изменений. Пока ты
+                        спишь — он работает.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT IS AGENT -->
+        <section
+            class="py-20 bg-slate-900/20 border-t border-slate-900/60 max-w-6xl mx-auto px-4"
+        >
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span
+                        class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-3 block"
+                        >В чём разница</span
+                    >
+                    <h2
+                        class="text-3xl md:text-4xl font-bold mb-6 text-white leading-tight"
+                    >
+                        Чат-бот отвечает.<br />
+                        <span class="gradient-text">Агент — делает.</span>
+                    </h2>
+                    <div class="space-y-5">
+                        <div class="flex gap-4">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 shrink-0 mt-0.5"
+                            >
+                                <i
+                                    data-lucide="message-square"
+                                    class="w-5 h-5"
+                                ></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">
+                                    Чат-бот (ChatGPT и т.п.)
+                                </h4>
+                                <p class="text-sm text-slate-400">
+                                    Ты задаёшь вопрос — он отвечает. Каждый раз
+                                    с нуля. Без памяти и контекста.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white shrink-0 mt-0.5"
+                            >
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">
+                                    Карманный Агент
+                                </h4>
+                                <p class="text-sm text-slate-400">
+                                    Получает задачу — и делает. Читает твои
+                                    файлы, гуглит, пишет, отправляет. Ты только
+                                    проверяешь результат.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl"
+                >
+                    <div
+                        class="flex items-center gap-2 mb-4 pb-4 border-b border-slate-800"
+                    >
+                        <div class="w-2.5 h-2.5 rounded-full bg-rose-500"></div>
+                        <div
+                            class="w-2.5 h-2.5 rounded-full bg-amber-500"
+                        ></div>
+                        <div
+                            class="w-2.5 h-2.5 rounded-full bg-emerald-500"
+                        ></div>
+                        <span class="ml-2 text-xs text-slate-500 font-mono"
+                            >telegram agent</span
+                        >
+                    </div>
+                    <div class="space-y-3 font-mono text-xs">
+                        <div
+                            class="p-3 rounded-lg bg-slate-950 border border-slate-800 text-slate-400"
+                        >
+                            <span class="text-amber-400">ты:</span> "вышли
+                            клиенту Иванову коммерческое предложение по проекту
+                            веб-дизайн"
+                        </div>
+                        <div class="flex justify-center text-slate-600">
+                            <i
+                                data-lucide="arrow-down"
+                                class="w-4 h-4 animate-bounce"
+                            ></i>
+                        </div>
+                        <div
+                            class="p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/20 text-slate-300"
+                        >
+                            <span class="text-emerald-400">🤖 агент:</span
+                            ><br />
+                            Нашёл шаблон КП в твоих файлах.<br />
+                            Подставил данные Иванова.<br />
+                            Проверил цены из прайса.<br />
+                            Отправил на почту.
+                            <span class="text-emerald-400 block mt-2"
+                                >✓ Готово.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHO IS THIS FOR -->
+        <section class="py-20 max-w-6xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                    Это для тебя, если...
+                </h2>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+                <div
+                    class="flex items-start gap-3 p-5 rounded-xl bg-slate-900/40 border border-slate-800/50"
+                >
+                    <span class="text-2xl">🎯</span>
+                    <span class="text-slate-300 text-sm"
+                        >Чувствуешь информационную перегрузку и не знаешь за что
+                        хвататься</span
+                    >
+                </div>
+                <div
+                    class="flex items-start gap-3 p-5 rounded-xl bg-slate-900/40 border border-slate-800/50"
+                >
+                    <span class="text-2xl">💡</span>
+                    <span class="text-slate-300 text-sm"
+                        >Интересуешься ИИ, но не знаешь с чего начать и
+                        куда.Apply</span
+                    >
+                </div>
+                <div
+                    class="flex items-start gap-3 p-5 rounded-xl bg-slate-900/40 border border-slate-800/50"
+                >
+                    <span class="text-2xl">⏰</span>
+                    <span class="text-slate-300 text-sm"
+                        >Хочешь больше успевать, но не готов тратить вечера на
+                        изучение инструментов</span
+                    >
+                </div>
+                <div
+                    class="flex items-start gap-3 p-5 rounded-xl bg-slate-900/40 border border-slate-800/50"
+                >
+                    <span class="text-2xl">🛠️</span>
+                    <span class="text-slate-300 text-sm"
+                        >Пробовал ChatGPT, но разочаровался — хочешь увидеть
+                        реальную силу ИИ</span
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA REGISTER -->
+        <section id="register" class="py-20 max-w-3xl mx-auto px-4">
+            <div
+                class="p-8 md:p-14 rounded-3xl bg-gradient-to-br from-orange-950/30 to-amber-950/20 border border-orange-500/20 text-center relative overflow-hidden"
+            >
+                <div
+                    class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.15),transparent_60%)]"
+                ></div>
+
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500/10 text-orange-400 border border-orange-500/20 mb-6"
+                >
+                    <i data-lucide="gift" class="w-3.5 h-3.5"></i> Полностью
+                    бесплатно
+                </div>
+
+                <h2
+                    class="text-3xl md:text-5xl font-black mb-4 text-white leading-tight"
+                >
+                    Приходи на живой<br />мастеркласс
+                </h2>
+                <p class="text-slate-400 max-w-md mx-auto mb-8 leading-relaxed">
+                    1,5 часа живого разбора неочевидных сценариев. Покажу на
+                    реальных примерах. Ответы на вопросы в прямом эфире.
+                </p>
+
+                <div
+                    class="bg-slate-950/60 border border-slate-800 p-5 rounded-xl max-w-md mx-auto text-left mb-8 space-y-3 text-sm"
+                >
+                    <div class="flex items-center gap-3 text-slate-300">
+                        <span class="text-amber-400 font-bold">✓</span> 9+
+                        сценариев использования ИИ-агентов
+                    </div>
+                    <div class="flex items-center gap-3 text-slate-300">
+                        <span class="text-amber-400 font-bold">✓</span> Живая
+                        демонстрация на твоих глазах
+                    </div>
+                    <div class="flex items-center gap-3 text-slate-300">
+                        <span class="text-amber-400 font-bold">✓</span> Запись
+                        вышлю всем зарегистрированным
+                    </div>
+                    <div class="flex items-center gap-3 text-slate-300">
+                        <span class="text-amber-400 font-bold">✓</span> Готовые
+                        шаблоны и ссылки бесплатно
+                    </div>
+                </div>
+
+                <a
+                    href="#"
+                    class="inline-block w-full sm:w-auto px-10 py-4 rounded-xl font-bold text-slate-900 gradient-bg hover:opacity-95 transition-all text-lg shadow-xl shadow-orange-500/25"
+                >
+                    Забронировать место
+                </a>
+
+                <p class="text-xs text-slate-600 mt-4">
+                    Никаких скрытых платежей. Просто бесплатный мастеркласс.
+                </p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer
+            class="border-t border-slate-900 py-8 text-center text-[11px] text-slate-600"
+        >
+            <p>&copy; 2026 PocketAgent. ИИ-агенты для реальной жизни.</p>
+        </footer>
+
+        <script>
+            lucide.createIcons();
+        </script>
+    </body>
+</html>
